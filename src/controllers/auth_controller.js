@@ -6,7 +6,7 @@ const { verifyJwt, decryptData, signJwt } = require('../utils/helper_functions')
 
 exports.LOGIN = async (req, res) => {
     const { data } = req.body
-    
+    console.log(process.env.JWT_SECRET_KEY)
     const creds = JSON.parse(decryptData(data, ENCRYPTION_SECRET))
     const { email, password } = creds
     try {
