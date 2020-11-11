@@ -1,4 +1,4 @@
 const env = require('dotenv')
-env.config({ path: __dirname + '/.env' })
+env.config()
 
 module.exports = env

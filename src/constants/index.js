@@ -7,6 +7,6 @@ exports.constants = {
     },
     MONGO_DB_URI: process.env.MONGO_DB_URI,
     PORT: process.env.PORT || 4000,
-    JWT_SECRET: process.env.JWT_SECRET_key,
+    JWT_SECRET: process.env.JWT_SECRET_KEY,
     ENCRYPTION_SECRET: process.env.ENCRYPTION_SECRET_KEY
 }
