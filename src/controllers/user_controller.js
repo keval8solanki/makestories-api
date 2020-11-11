@@ -39,7 +39,7 @@ exports.UPDATE = async (req, res) => {
 
     try {
         const user = await UserModel.findById(id)
-
+        
         if (oldPassword && password) {
             const isMatch = await bcrypt.compare(oldPassword, user.password)
             if (!isMatch) return res.status(406).send({ error: `Old Password Didn't Match` })
@@ -55,6 +55,7 @@ exports.UPDATE = async (req, res) => {
         return res.status(200).send({ updatedUser: data })
 
     } catch (error) {
+        console.log(error)
         return res.status(503).send({ error })
     }
 }
