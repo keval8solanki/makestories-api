@@ -6,7 +6,6 @@ const { verifyJwt, decryptData, signJwt } = require('../utils/helper_functions')
 
 exports.LOGIN = async (req, res) => {
     const { data } = req.body
-    console.log(process.env.JWT_SECRET_KEY)
     const creds = JSON.parse(decryptData(data, ENCRYPTION_SECRET))
     const { email, password } = creds
     try {
@@ -21,7 +20,6 @@ exports.LOGIN = async (req, res) => {
         return res.status(200).send({ userData })
 
     } catch (error) {
-        console.log(error)
         return res.status(503).send({ error })
     }
 }
@@ -43,7 +41,6 @@ exports.VERIFY = async (req, res) => {
         if (!userData) return res.status(404).send({ error: 'No such user found' })
         return res.send({ userData })
     } catch (error) {
-        console.log(error)
         return res.status(403).send({ error })
     }
 }

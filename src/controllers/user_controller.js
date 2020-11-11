@@ -55,7 +55,6 @@ exports.UPDATE = async (req, res) => {
         return res.status(200).send({ updatedUser: data })
 
     } catch (error) {
-        console.log(error)
         return res.status(503).send({ error })
     }
 }
@@ -66,7 +65,6 @@ exports.READ = async (req, res) => {
         if (userData) return res.status(200).send({ usersData })
         return res.status(404).send({ error: 'No Such User' })
     } catch (error) {
-        console.log(error)
         return res.status(503).send({ error })
     }
 }
@@ -79,7 +77,6 @@ exports.GET_PIC = async (req, res) => {
         res.set('Content-type', 'image/png')
         res.send(user.profilePicture)
     } catch (error) {
-        console.log(error)
         return res.status(503).send({ error })
     }
 }
@@ -91,7 +88,6 @@ exports.READ_SINGLE = async (req, res) => {
         if (!userData) return res.status(404).send({ message: 'No Such User' })
         return res.status(200).send({ userData })
     } catch (error) {
-        console.log(error)
         return res.status(53).send({ error })
     }
 }
