@@ -1,13 +1,13 @@
 const bcrypt = require('bcryptjs')
-const { constants: {  COOKIE_CONFIG } } = require('../constants')
+const { constants: { ENCRYPTION_SECRET,  COOKIE_CONFIG } } = require('../constants')
 
 const UserModel = require('../models/user_model')
 const { verifyJwt, decryptData, signJwt } = require('../utils/helper_functions')
 
 exports.LOGIN = async (req, res) => {
     const { data } = req.body
-    console.log({constants})
-    const creds = JSON.parse(decryptData(data, constants.ENCRYPTION_SECRET))
+    
+    const creds = JSON.parse(decryptData(data, ENCRYPTION_SECRET))
     const { email, password } = creds
     try {
         const userData = await UserModel.findOne({ email })
